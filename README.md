@@ -13,10 +13,15 @@ The program contains several components which needs to be clarified:
 3.	I also compared the time consumed for two different methods: normal multithread quicksort (sort() function in QuickSort class) and multithread quicksort based on Fork/Join framework (forkJoinSort() function in QuickSort class). With the same threshold, the performance of forkJoinSort() is better than sort(). To be clarified, Fork/Join framework has the advantage where its Work-stealing algorithm can leverage thread to process parallel computing and reduce the competition of threads. 
 4.	The system is user-friendly and it can inform user what current component is being executed.
 5.	The explanation of each file in the system: 
+
 1>	Car class including the definition of car information
+
 2>	QuickSort including the file operation, sorting function, and other main components.
+
 3>	SortByCar is a comparator which allows the system to compare the relationship between two cars
+
 4>	SortTask class which extends RecursiveAction is set to implement the function of Fork/Join framework. 
+
 5>	./carFile/ includes the file or unsorted and sorted car information. 
 
 Considering the real production environment, I set the serial number of the car to be String type for the following reason: String is efficient to be compared with lexicographical order and easy to write into and read from file. However, it is fine if we set it to be Integer and the we only need to transfer it into String. I combined all attributes of the Car into a String and compared its relationship with lexicographical order, then I got the sequence of sorted car information via multithread quicksort. 
